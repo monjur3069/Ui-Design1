@@ -13,14 +13,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  int selectedIndex = 0;
+  final List _children = [
+    FirstScreen(),
+    SecondScreen(),
+    ThirdScreen(),
+    ThirdScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _children = [
-      FirstScreen(),
-      SecondScreen(),
-      ThirdScreen(),
-    ];
-    int selectedIndex = 0;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -36,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                 right: 7,
                 top: 5,
                 child: Container(
-                  height: 15,
+                  height: 10,
                   width: 10,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
@@ -63,10 +66,11 @@ class _HomePageState extends State<HomePage> {
       ),
       body: _children[selectedIndex],
       bottomNavigationBar: BottomAppBar(
-        notchMargin: 10,
+        notchMargin: 5,
         shape: CircularNotchedRectangle(),
         clipBehavior: Clip.antiAlias,
         child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           onTap: (value) {
             setState(() {
               selectedIndex = value;
@@ -75,6 +79,7 @@ class _HomePageState extends State<HomePage> {
           },
           currentIndex: selectedIndex,
           selectedItemColor: Colors.white,
+
           items: [
             BottomNavigationBarItem(
                 icon: Image.asset(
@@ -86,14 +91,6 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(
                 icon: Image.asset(
                   "images/favourite.png",
-                  height: 20,
-                  width: 20,
-                ),
-                label: ""),
-            BottomNavigationBarItem(
-
-                icon: Image.asset(
-                  "images/favourite.png",color: Colors.white,
                   height: 20,
                   width: 20,
                 ),
@@ -116,7 +113,9 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
           backgroundColor: Color(0xff5B9EE1),
-          onPressed: () {},
+          onPressed: () {
+           //Navigator.push(context, MaterialPageRoute(builder: (context)=> SecondScreen()));
+          },
           child: Image.asset(
             "images/appBarActionImage.png",
             color: Colors.white,
