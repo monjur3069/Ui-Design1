@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:task_ui_design/ui/pages/first_screen.dart';
 import 'package:task_ui_design/ui/pages/second_screen.dart';
 import 'package:task_ui_design/ui/pages/third_screen.dart';
+import 'package:task_ui_design/ui/widgets/main_appbar.dart';
+import 'package:task_ui_design/ui/widgets/main_drawer.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatefulWidget{
   static const String routeName = "/homepage";
 
   const HomePage({Key? key}) : super(key: key);
@@ -29,63 +31,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: InkWell(
-          onTap: (){
-            _scaffoldKey.currentState!.openDrawer();
-          },
-            child: Image.asset("images/appBarLeadingImage.png")),
-        actions: [
-          Visibility(
-            visible: true,
-            child: Stack(
-              children: [
-                Image.asset("images/appBarActionImage.png"),
-                Positioned(
-                  right: 7,
-                  top: 5,
-                  child: Container(
-                    height: 10,
-                    width: 10,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Color(0xffF87265)),
-                  ),
-                )
-              ],
-            ),
-          )
-        ],
-        title: ListTile(
-          title: Text("Store location",
-              style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xff707B81))),
-          subtitle: Text(
-            "Mondolibug, Sylhet",
-            style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Color(0xff1A2530)),
-          ),
-        ),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: const [
-            DrawerHeader(child: Text("Drawer Header")),
-            ListTile(
-              title: Text('Item 1'),
-            ),
-            ListTile(
-              title: Text('Item 2'),
-            ),
-          ],
-        ),
-      ),
+      appBar: MainAppBar(scaffoldKey: _scaffoldKey,),
+      drawer: MainDrawer(),
       body: _children[selectedIndex],
       bottomNavigationBar: BottomAppBar(
         notchMargin: 5,
@@ -146,4 +93,5 @@ class _HomePageState extends State<HomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
+
 }
