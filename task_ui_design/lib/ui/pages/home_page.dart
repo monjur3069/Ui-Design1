@@ -38,21 +38,24 @@ class _HomePageState extends State<HomePage> {
           },
             child: Image.asset("images/appBarLeadingImage.png")),
         actions: [
-          Stack(
-            children: [
-              Image.asset("images/appBarActionImage.png"),
-              Positioned(
-                right: 7,
-                top: 5,
-                child: Container(
-                  height: 10,
-                  width: 10,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Color(0xffF87265)),
-                ),
-              )
-            ],
+          Visibility(
+            visible: true,
+            child: Stack(
+              children: [
+                Image.asset("images/appBarActionImage.png"),
+                Positioned(
+                  right: 7,
+                  top: 5,
+                  child: Container(
+                    height: 10,
+                    width: 10,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Color(0xffF87265)),
+                  ),
+                )
+              ],
+            ),
           )
         ],
         title: ListTile(
