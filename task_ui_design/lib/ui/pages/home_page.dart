@@ -21,16 +21,22 @@ class _HomePageState extends State<HomePage> {
     ThirdScreen(),
     ThirdScreen(),
   ];
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: Image.asset("images/appBarLeadingImage.png"),
+        leading: InkWell(
+          onTap: (){
+            _scaffoldKey.currentState!.openDrawer();
+          },
+            child: Image.asset("images/appBarLeadingImage.png")),
         actions: [
           Stack(
             children: [
@@ -62,6 +68,19 @@ class _HomePageState extends State<HomePage> {
                 fontWeight: FontWeight.w500,
                 color: Color(0xff1A2530)),
           ),
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: const [
+            DrawerHeader(child: Text("Drawer Header")),
+            ListTile(
+              title: Text('Item 1'),
+            ),
+            ListTile(
+              title: Text('Item 2'),
+            ),
+          ],
         ),
       ),
       body: _children[selectedIndex],

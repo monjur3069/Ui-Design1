@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_ui_design/test_page.dart';
 import 'package:task_ui_design/ui/pages/details_page.dart';
 import 'package:task_ui_design/ui/pages/home_page.dart';
 import 'package:task_ui_design/ui/pages/splash_screen_page.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         SplashScreenPage.routeName : (_) => SplashScreenPage(),
         HomePage.routeName : (_) => HomePage(),
         DetailsPage.routeName : (_) => DetailsPage(),
+        MyHomePage.routeName : (_) => MyHomePage(),
       },
     );
   }
