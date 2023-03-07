@@ -33,6 +33,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       appBar: MainAppBar(scaffoldKey: _scaffoldKey,),
       drawer: MainDrawer(),
+      endDrawer: MainDrawer(),
       body: _children[selectedIndex],
       bottomNavigationBar: BottomAppBar(
         notchMargin: 5,
