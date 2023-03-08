@@ -48,10 +48,26 @@ class _FirstScreenState extends State<FirstScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset(
-                  "images/nike.png",
-                  height: 44,
-                  width: 92,
+                Card(
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(1),
+                    child: Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20)
+                      ),
+                      child: Image.asset(
+                        "images/nike.png",
+
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
                 ),
                 Image.asset(
                   "images/puma.png",
@@ -100,20 +116,32 @@ class _FirstScreenState extends State<FirstScreen> {
             SizedBox(
               height: 15,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                    height: 207,
-                    width: 157,
-                    child: Image.asset(
-                      "images/shoe1.png",
-                    )),
-                SizedBox(
-                    height: 207,
-                    width: 157,
-                    child: Image.asset("images/shoe2.png")),
-              ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Container(
+                      height: 207,
+                      width: 157,
+                      child: Image.asset(
+                        "images/shoe1.png",
+                      )),
+                  SizedBox(
+                      height: 207,
+                      width: 157,
+                      child: Image.asset("images/shoe2.png")),
+                  Container(
+                      height: 207,
+                      width: 157,
+                      child: Image.asset(
+                        "images/shoe1.png",
+                      )),
+                  SizedBox(
+                      height: 207,
+                      width: 157,
+                      child: Image.asset("images/shoe2.png")),
+                ],
+              ),
             ),
             SizedBox(
               height: 15,

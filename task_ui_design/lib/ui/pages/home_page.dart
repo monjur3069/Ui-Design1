@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_ui_design/ui/pages/first_screen.dart';
+import 'package:task_ui_design/ui/pages/fourth_screen.dart';
 import 'package:task_ui_design/ui/pages/second_screen.dart';
 import 'package:task_ui_design/ui/pages/third_screen.dart';
 import 'package:task_ui_design/ui/widgets/main_appbar.dart';
@@ -21,7 +22,7 @@ class _HomePageState extends State<HomePage> {
     FirstScreen(),
     SecondScreen(),
     ThirdScreen(),
-    ThirdScreen(),
+    FourthScreen(),
   ];
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
